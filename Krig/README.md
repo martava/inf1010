@@ -18,8 +18,6 @@ d) Random-generatoren kan vi bruke slik:
 
 int indeks = trekker.nextInt(kortstokk.size()). Vi har nå en indeks som er tilfeldig valgt. Lag en metode trekkKort(). Lag også en metode erTom().
 
-Hint.
-
 e) Lag en klasse Spiller som skal representere en kortspiller. Den skal ha en konstruktør som tar i mot et navn og initialiserer attributtene
 
 private String navn;
@@ -39,4 +37,4 @@ f) Lag en klasse Krig som skal representere selvet spillet vårt. Den skal ha é
 
 g) Vi skal nå lage resten av programmet vårt ved hjelp av diverse if-setninger. Begynn med en while-løkke som fortsetter helt til en av spillerne dine ikke har flere kort igjen. Det kan være lurt å gjøre noen forenklinger underveis, der for eksempel en av spillerene bare får kortene. Husk at det er den med høyeste kort som får alle kortene. Dersom man har det samme tallet, legges det frem 4 kort, og det siste hver av spillerene legger, avgjør hvem som får alle kortene. En forenkling kan være at dersom disse siste kortene også er like, får en av spillerne kortene.
 
-Det kan også være hjelpsomt å skrive ut en del til terminalen underveis. 
+Det kan også være hjelpsomt å skrive ut en del til terminalen underveis.
