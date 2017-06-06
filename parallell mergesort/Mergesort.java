@@ -29,11 +29,11 @@ public class Mergesort{
       }
       int ordPrTraad = antOrd / antTraader + 1; //fordi int runder alltid ned
 
-
+      int teljer = 0;
       for(int k = 0; k<antTraader; k++){
-          String[] tilTraad = new String[antOrd];
-        for(int j = 0; j<antOrd; j++){
-          tilTraad[j] = ordTabell[j];
+          String[] tilTraad = new String[ordPrTraad];
+          for(int j = 0; j<ordPrTraad; j++){
+            tilTraad[j] = ordTabell[teljer++];
         }
         new Thread(new Sorterer(tilTraad, mon)).start();
       }

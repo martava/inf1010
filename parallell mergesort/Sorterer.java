@@ -13,11 +13,14 @@ class Sorterer implements Runnable{
     mergeSort(ord, tmp, 0, ord.length-1);
     ferdig = true;
 
-    System.out.println("set inn remse");
+    //testutskrifter:
+    //System.out.println("set inn remse");
     /*for (int j = 0; j<ord.length; j++){
       System.out.println(ord[j]);
     }*/
   }
+
+  //rekursiv mergesortalgoritme henta frå Mark Allen Weiss: Data Structure and Algorithm Analysis in Java
   private void mergeSort(String[] usortert, String[] tmp, int left, int right){
     if(left < right){
       int center = (left+right)/2;
@@ -27,7 +30,7 @@ class Sorterer implements Runnable{
     }
   }
   private void merge(String[] a, String[] tmp, int leftPos, int rightPos, int rightEnd){
-    System.out.println("merger");
+
     int leftEnd = rightPos-1;
     int tmpPos = leftPos;
     int numElements = rightEnd - leftPos + 1;
@@ -51,8 +54,9 @@ class Sorterer implements Runnable{
       for(int i = 0; i<numElements; i++, rightEnd--){
         ord[rightEnd] = tmp[rightEnd];
       }
-      monitor.settInnRemse(ord);
 
+      monitor.settInnRemse(ord);
+      System.out.println("ferdig med å sortere");//testutksrift
 
 
   }

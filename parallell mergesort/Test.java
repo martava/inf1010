@@ -1,22 +1,14 @@
-class Merger implements Runnable{
-  String[] remse1;
-  String[] remse2;
-  Monitor monitor;
-  boolean ferdig;
+public class Test{
+  public static void main(String[] args){
+    String[] tab1 = {"a", "b", "b", "bc", "d", "f", "gi"};
+    String[] tab2 = {"aa", "ab", "ac", "g", "h"};
+    merge(tab1, tab2);
+    //a, aa, ab, ac, b, b, bc, d, f, g, g, h
 
-  public Merger(String[] remse1, String[] remse2, Monitor monitor){
-    this.monitor = monitor;
-    this.remse1 = remse1;
-    this.remse2 = remse2;
-    ferdig = false;
-  }
-  public void run(){
-
-    merge(remse1, remse2);
-    ferdig = true;
 
   }
-  private void merge(String[] a, String[] b){
+  public static void merge(String[] a, String[] b){
+    System.out.println("starter å merge");
     int lengde = a.length + b.length;
     String[] ny = new String[lengde];
     String tmpA = a[0];
@@ -62,9 +54,10 @@ class Merger implements Runnable{
 
 
     }
-    monitor.settInnRemseNy(ny);
-    System.out.println("ferdig med å merge");
+    for(int j = 0; j<ny.length; j++){
+      System.out.print(ny[j] + ", ");
+    }
+
 
   }
-
 }

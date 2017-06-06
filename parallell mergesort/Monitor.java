@@ -7,7 +7,7 @@ public class Monitor{
   private int i;
   private int alt;
   private final Lock laas = new ReentrantLock();
-  //private final Condition ingenDekrMeldingar = laas.newCondition();
+
 
   ArrayList<String[]> klar = new ArrayList<String[]>();
   ArrayList<String[]> nyklar = new ArrayList<String[]>();
@@ -23,14 +23,13 @@ public class Monitor{
       i++;
       System.out.println(klar.size());
       if(klar.size() >= 2){
-        new Thread(new Merger(klar.get(0), klar.get(1), this)).start();
-        klar.remove(klar.get(0));
-        klar.remove(klar.get(1));
+        String[] tmp1 = klar.get(0);
+        String[] tmp2 = klar.get(1);
+        klar.remove(tmp1);
+        klar.remove(tmp2);
         System.out.println("starter ny traad");
-      }
-      if(i == alt){
-        System.out.println("kallar på skritilfil");
-        skrivTilFil();
+        new Thread(new Merger(tmp1, tmp2, this)).start();
+
       }
     }catch (Exception ie){
 
@@ -40,13 +39,19 @@ public class Monitor{
   }
   public void settInnRemseNy(String[] remse){
     laas.lock();
-    try{System.out.println("er her");
+    try{
       nyklar.add(remse);
       if(nyklar.size() >= 2){
-        new Thread(new Merger(nyklar.get(0), nyklar.get(1), this)).start();
-        nyklar.remove(nyklar.get(0));
-        nyklar.remove(nyklar.get(1));
-        System.out.println("ne ne ne traad");
+        String[] tmp1 = nyklar.get(0);
+        String[] tmp2 = nyklar.get(1);
+        nyklar.remove(tmp1);
+        nyklar.remove(tmp2);
+        new Thread(new Merger(tmp1, tmp2, this)).start();
+
+      }
+      if(nyklar.size() == 1){
+        System.out.println("kallar på skrivtilfil");
+        skrivTilFil();
       }
 
     }catch (Exception ie){
@@ -58,7 +63,7 @@ public class Monitor{
   public void skrivTilFil(){
     try{
       PrintWriter pw = new PrintWriter(new File("sortert.in"), "utf-8");
-      String[] ferdigSortert = new String[alt];
+      String[] ferdigSortert = nyklar.get(0);
       for(int i = 0; i<alt; i++){
         if(ferdigSortert[i] != null){
           pw.println(ferdigSortert[i]);
