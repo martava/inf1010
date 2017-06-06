@@ -1,3 +1,24 @@
+/* Denne oppgaven ble gitt som innleveringsoppgave våren 2015
+
+I denne oppgaven skal du vise at du kan løse et problem ved hjelp av enkel tråd-programmering og lage et enkelt felles objekt (en monitor). Kildekoden til det fullstendige kjørbare programmet skal leveres.
+
+Programmet skal lese en fil der første linje inneholder antallet ord i resten av filen, ett ord på hver linje. Ordene skal lagres i en tabell (array), og deretter skal k
+
+tråder finne hvor mange ganger et gitt ord forekommer i tabellen. Hvis programmet ditt heter FinnAntall.java skal det f.eks. startes opp på denne måten:
+
+>java FinnAntall anders minfil.txt
+8
+
+Dette betyr at du skal finne hvor mange ganger ordet anders finnes i filen minfil.txt ved hjelp av 8 tråder. Her er altså k=8
+. Husk å ta hensyn til at k
+
+kan være 1.
+
+Når filen er lest inn skal main-tråden dele tabellen i ca. k like lange deler, og starte opp k
+tråder som skal lete i hver sin del. Når en tråd har funnet antall forekomster av ordet i sin del skal den rapportere dette inn til et felles objekt (en monitor). Main-tråden skal vente til alle trådene er ferdig med å lete, hente det totale antallet forekomster fra monitoren og til slutt skrive dette antallet ut.
+*/
+
+
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;

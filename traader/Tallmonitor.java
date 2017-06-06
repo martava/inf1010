@@ -1,3 +1,9 @@
+/* a) Skriv en monitor som holder orden på to tall, detMinste og detStorste. En invariant tilstandspåstand i monitoren skal være at detMinste < detStorste. Monitoren skal ha to offentlige metoder settMinste() og settStorste() som gir ny verdi til hhv. det minste og det største tallet. Dersom operasjonen ikke ødelegger invarianten skal det returneres sann (true). Hvis operasjonen ikke kan utføres (altså at det vil bryte med invarianten), skal det returneres usann (false).
+
+b) Skriv to tråder Nedover og Oppover. Nedover skal starte med Integer.MAX_VALUE og telle nedover. For hvert nye tall kalles metoden settStorste() i monitoren. Oppover skal starte med Integer.MIN_VALUE, telle oppover og kalle monitorens sin settMinste(). Trådene skal fortsette så lenge sann returneres. Dersom det returneres usant skal tallet som ble forsøkt lagt inn skrives ut, og tråden skal stoppe
+*/
+
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -85,15 +91,5 @@ class TallMonitor {
      //return false;
   }
 
-  /*  public void giMinste(String liten) {
-        System.out.println("Mottok: " + liten);
-        laas.lock();
-        try {
-            if (minste == null || liten.compareTo(minste) < 0) {
-                minste = liten;
-            }
-        } finally {
-            laas.unlock();
-        }
-    }*/
+
 }
